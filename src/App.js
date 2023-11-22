@@ -75,21 +75,40 @@
 //   ); 
 // } 
 
-import { useRef } from 'react'; 
+// import { useRef } from 'react'; 
 
+// function TextInputWithFocusButton() {
+//   const inputEl = useRef(null);
+//   const onButtonClick = () => {
+//     // `current` points to the mounted text input element
+//     inputEl.current.focus();
+//   };
+//   return (
+//     <>
+//       <input ref={inputEl} type="text" />
+//       <button onClick={onButtonClick}>Focus the input</button>
+//     </>
+//   );
+// }
 
-function TextInputWithFocusButton() {
-  const inputEl = useRef(null);
-  const onButtonClick = () => {
-    // `current` points to the mounted text input element
-    inputEl.current.focus();
-  };
+// export default TextInputWithFocusButton;
+
+import React, { useState } from 'react';
+import Heading from './Heading';
+import './App.css';
+
+function App() {
+  const [word, setWord] = React.useState('Eat')
+
+  function handleClick() {
+    setWord("Drink")
+  }
   return (
-    <>
-      <input ref={inputEl} type="text" />
-      <button onClick={onButtonClick}>Focus the input</button>
-    </>
+    <div className="App">
+      <Heading message={word + " at Little Lemon"}/>
+      <button onClick={handleClick}>Click Here!</button>
+    </div>
   );
 }
 
-export default TextInputWithFocusButton;
+export default App;
